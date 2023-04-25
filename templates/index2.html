@@ -1,0 +1,28 @@
+{% extends "base.html" %}
+
+{% block content %}
+<h1>Фильмы</h1>
+   <style>
+	body {
+   	   background: #C0C0C0;
+	   color: #A9A9A9;
+   }
+   </style>
+{% for item in news%}
+<div class="col-md6 border rounded">
+    <h2>{{item.title}}</h2>
+    <div>
+        {{item.content}}
+    </div>
+	<div>
+        <form color='green' action="https://www.kinopoisk.ru/film/{{ item.id }}/" target="_blank">
+            <button color='#800080'>Узнать больше информации</button>
+        </form>
+        <a href="/news_delete/{{ item.id }}" class="btn btn-danger">
+            Удалить
+        </a>
+        <img src="https://raw.githubusercontent.com/Daymae4ka/helpme/main/{{ item.id }}.jpg"  />
+    </div>
+</div>
+{% endfor %}
+{% endblock %}
